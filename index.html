@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Analytic COE</title>
+  <script src="https://alcdn.msauth.net/browser/2.26.0/js/msal-browser.js"
+    integrity="sha384-fitpJWrpyl840mvd9nBFLGulqR4BJzvim0fzrXQKdsVh2AQzE4rTTJ0o5o+x+dRK"
+    crossorigin="anonymous"></script>
+
+  <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
+
+  <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
+  <script src="https://alcdn.msauth.net/browser/2.26.0/js/msal-browser.js"
+    integrity="sha384-fitpJWrpyl840mvd9nBFLGulqR4BJzvim0fzrXQKdsVh2AQzE4rTTJ0o5o+x+dRK"
+    crossorigin="anonymous"></script>
+
+  <!-- To help ensure reliability, Microsoft provides a second CDN -->
+  <script type="text/javascript">
+    if (typeof Msal === 'undefined') document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/browser/2.26.0/js/msal-browser.js' type='text/javascript' crossorigin='anonymous' %3E%3C/script%3E"));
+  </script>
+
+  <!-- adding Bootstrap 4 for UI components  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon"> -->
+  <!-- <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon"> -->
+  <link rel="icon" type="images\icons8-grid-view-64.png" href="images/favicon.ico">
+
+</head>
+<style>
+  .card {
+cursor: pointer;;
+    
+  }
+   
+  .gallery-section-filter{
+    border-top: 1px solid #e1e1e1;
+    background: #fbfbfb;
+    border-bottom: 1px solid #e1e1e1;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .gall-filt-box {
+    position: relative;
+    display: inline-block;
+}
+.gallery-section-filter span.active[data-filter] {
+    margin-bottom: -1px;
+    border-bottom: 1px solid #3d4451;
+}
+.gallery-section-filter span.active[data-filter], .gallery-section-filter span[data-filter]:hover {
+   border-bottom:1px solid #3d4451
+}
+
+.gallery-section-filter span[data-filter] {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 25px 27px;
+    font-size: 22px;
+    line-height: 24px;
+    color: #656666;
+}
+
+div.card {
+  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* img.card {
+  transition: 0.3s;
+} */
+.card:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 255, 0.2), 0 6px 20px 0 rgba(0, 255, 0, 0.19);
+} 
+img {
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  
+}
+/* .element-item__info {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    line-height: 26px;
+    color: #3d4351;
+    font-family: 'Source Sans Pro',Calibri,sans-serif;
+}
+/*
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+.element-item a {
+    padding: 10px 15px;
+}
+.element-item a {
+    display: block;
+    background: #f8f8f8;
+    padding: 18px 22px 30px;
+    -webkit-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
+    transition: all .4s ease-out;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+element.style {
+    display: block;
+}
+.element-item {
+    padding: 0 7.5px;
+    margin-bottom: 15px;
+}
+.element-item {
+    width: 33.333%;
+    padding: 0 25.5px;
+    margin-bottom: 45px;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.element-item__info .lg {
+    font-size: 28px;
+}
+.element-item__info .lg {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 7px;
+}
+.element-item__info, .gallery-section-bottom, .gallery-section-top {
+    font-size: 18px;
+    line-height: 22px;
+} */
+* {
+  box-sizing: border-box;
+}
+.card{
+  padding: 10px;
+  background: #faf8f8;
+  width: 18rem
+}
+
+
+.card-text{
+  font-weight: bold
+}
+/* img{
+  h.eight: 187px;
+} */
+
+img {
+    max-width: 100%;
+    height: 190px;
+    border: 1px solid lightgrey;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+/* .row {
+  margin: 10px -16px;
+} */
+
+/* Add padding BETWEEN each column */
+/* .row,
+.row > .column {
+  padding: 8px;
+} */
+
+/* Create three equal columns that floats next to each other */
+/* .column {
+  float: left;
+  width: 33.33%;
+  cursor: pointer;
+  display: none; /* Hide all elements by default */
+} */
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+  width: 88%;
+  height: 260px;
+  margin-bottom: 20px;
+
+}
+
+/* The "show" class is added to the filtered elements */
+/* .show {
+  display: block;
+} */
+
+/* Style the buttons */
+/* .btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+} */
+
+/* .btn:hover {
+  background-color: #ddd;
+} */
+
+/* .btn.active {
+  background-color: #666;
+  border-bottom: 1px solid #3d4451;
+  color: white;
+} */
+</style>
+<body>
+  <title>BI-COE</title>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success ">
+    <a class="navbar-brand" href="/">Rsystems Analytic COE</a>
+    <div class="btn-group ml-auto dropleft">
+      <button type="button" id="SignIn" class="btn btn-secondary" onclick="signIn()">
+        Sign In
+      </button>
+    </div>
+  </nav>
+   <!-- <div class="row" style="margin:auto">
+ 
+    
+    <div class="col-md-4">
+      <div class="list-group" id="list-tab" role="tablist">
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="tab-content" id="nav-tabContent">
+      </div>
+    </div>
+  </div> -->
+  <br>
+  <br>
+  <div class="gallery-section-filter">
+    <div class="container">
+      <div class="gall-filt-box">            
+        <span data-filter=".function" class="active" onclick="filterSelection('nature')" class="btn">Dashboards by Function</span>
+        <span data-filter=".industry" onclick="filterSelection('nature')" class="btn">Dashboards by Industry</span>
+        <span data-filter=".platform" onclick="filterSelection('nature')" class="btn" >Dashboards by Platform</span>
+      </div>
+    </div>
+  </div>
+</div> 
+  <div class="container">
+    <!-- <div class="gallery-section-body clearfix">
+      <div class="grid dashboard-grid">
+        <div class="element-item  function" style="display: block;">
+          <a target="_blank" href="https://public.datapine.com/#board/DnjvEBVsJRVZteO3gGbSWA">
+            <span class="element-item__img">
+              <img loading="lazy" src="/images/management-kpi-dashboard.png" alt="real time management kpi dashboard" class="loaded">
+            </span>
+            <span class="element-item__info">
+              <span class="lg">Executive</span>
+              Management KPI Dashboard
+            </span>
+          </a>
+        </div>
+        <div class="element-item  function" style="display: block;">
+          <a target="_blank" href="https://app.powerbi.com/view?r=eyJrIjoiOWZlNjY2NDktNjQyNy00MTRlLTljMGMtMzU2Nzk4YWVkYWQ4IiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9">
+            <span class="element-item__img">
+              <img loading="lazy" src="/images/management-kpi-dashboard.png" alt="real time management kpi dashboard" class="loaded">
+            </span>
+            <span class="element-item__info">
+              <span class="lg">Finance</span>
+              ENFOS  KPI Dashboard
+            </span>
+          </a>
+        </div>
+        <div class="element-item  function" style="display: block;">
+          <a target="_blank" href="https://public.datapine.com/#board/DnjvEBVsJRVZteO3gGbSWA">
+            <span class="element-item__img">
+              <img loading="lazy" src="/images/management-kpi-dashboard.png" alt="real time management kpi dashboard" class="loaded">
+            </span>
+            <span class="element-item__info">
+              <span class="lg">Executive</span>
+              Management KPI Dashboard
+            </span>
+          </a>
+        </div>
+        <div class="element-item  function" style="display: none;">
+          <a target="_blank" href="https://public.datapine.com/#board/2iCxG0lBg8Hfnx4h6OuhH">
+            <span class="element-item__img">
+              <img loading="lazy" src="/images/financial-overview-dashboard.png" alt="live financial overview dashboard" class="loaded">
+            </span>
+            <span class="element-item__info">
+              <span class="lg">Executive</span>
+              Financial Overview Dashboard
+            </span>
+          </a>
+        </div>
+        <div class="element-item  function" style="display: none;">
+          <a target="_blank" href="https://public.datapine.com/#board/DS1Cw8j9c45cOwBMUVX6fK">
+            <span class="element-item__img">
+              <img loading="lazy" src="/images/investor-relations-dashboard.png" alt="live dashboard example for investor relations" class="loaded">
+            </span>
+            <span class="element-item__info">
+              <span class="lg">Executive</span>
+              Investor Relations Dashboard
+            </span>
+          </a>            
+  </div>
+    </div>
+  </div> -->
+  <div class="container ">
+    <h4>Power BI</h4>
+    <div class="row my-4" >
+    <div class="col-sm-4 column nature " >
+        <div class="card " >
+          
+          <img src="images/Dashboard2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+          
+            <p class="card-text">AR- Prediction Dashboard.</p>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-4 ">
+      <div class="card " >
+        <img src="images/Dashboard3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Corona Analysis</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;">
+        <a href="https://app.powerbi.com/reportEmbed?reportId=a7425e5f-3b07-4635-9f53-7f03ec826e79&autoAuth=true&ctid=bb466cbb-621c-493b-8374-6c8f26dc6a18" class="card-link" target="_blank"> 
+        <img src="images/Dashboard4.png" class="card-img-top" alt="..." >
+      </a>
+        <div class="card-body">
+          <p class="card-text">Credit Union</p>
+          
+        </div>
+      </div>
+    </div>
+
+</div>
+<div class="row py-4 my-4">
+  <div class="col-sm-4">
+      <div class="card hover-shadow" style="width: 18rem;">
+        
+        <img src="images/Dashboard5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+        
+          <p class="card-text">Healthcare Reports.</p>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card " >
+      <img src="images/Dashboard6.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Xtra Source</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3 column nature">
+    <div class="card " >
+      <img src="images/Dashboard7.jpg" class="card-img-top" alt="..." href="https://public.datapine.com/#board/2iCxG0lBg8Hfnx4h6OuhH">
+      <div class="card-body">
+        <p class="card-text">Xperigo Report</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row my-4">
+  <div class="col-sm-4">
+      <div class="card " >
+        
+        <img src="images/Dashboard8.png" class="card-img-top" alt="...">
+        <div class="card-body">
+        
+          <p class="card-text">Dyson</p>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card " >
+      <img src="images/Dashboard9.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">E Health </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card " >
+      <a href="https://app.powerbi.com/view?r=eyJrIjoiZTMxOTI3MDEtMzZiYi00YjFhLTg2ZTgtMDYyNjhjYWFlMzYyIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9" target="_blank">
+        <img loading="lazy" src="images/Dashboard9.png" class="card-img-top" alt="...">
+        </a>
+     <div class="card-body" style="display: block;">
+     <p class="card-text">Healthcare</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<h4>Tableau</h4>
+<div class="row my-4">
+  <div class="col-sm-4">
+      <div class="card " >
+        <a href="https://public.tableau.com/profile/niket1079#!/vizhome/Supervisor_AHT_Final_3/Overview" target="_blank">
+        <img src="images/Tb_Supervisor_AHT_Final_3.png" class="card-img-top" alt="...">
+      </a>
+        <div class="card-body">
+        
+          <p class="card-text">Supervisor_AHT_Final_3 </p>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card " >
+      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/TelecomDashboard_15698335532700/TelecomDashboard" target="_blank">
+      <img loading="lazy" src="images/tb_Telecom Dashboard .png" class="card-img-top" alt="...">
+    </a>
+      <div class="card-body">
+        <p class="card-text">Telecom Dashboard  </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card " >
+      <a href="https://public.tableau.com/app/profile/niket1079/viz/Nexidia-ManagerAndAbove/Sentiment" target="_blank">
+        <img loading="lazy" src="images/tb_Nexidia-Manager.png" class="card-img-top" alt="...">
+        </a>
+     <div class="card-body" style="display: block;">
+     <p class="card-text">Nexidia-Manager and Above </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row my-4 ">
+  <div class="col-sm-4">
+      <div class="card " >
+        <a href="https://public.tableau.com/profile/niket1079#!/vizhome/PropertyInsurance/HistoricalAnalysis" target="_blank">
+        <img src="images/Property_Insurance .png" class="card-img-top" alt="...">
+      </a>
+        <div class="card-body">
+        
+          <p class="card-text">Supervisor_AHT_Final_3 </p>
+        </div>
+      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card " >
+      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/AttritionPredictionAnalysisthemeedited2/Historical-VoluntaryChurnsDashboard" target="_blank">
+      <img loading="lazy" src="images/Attrition & Prediction Analysis .png" class="card-img-top" alt="...">
+    </a>
+      <div class="card-body">
+        <p class="card-text">Telecom Dashboard  </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" >
+      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/SalesBehaviorCoachingOpportunity/CoachingBehavior" target="_blank">
+        <img loading="lazy" src="images/Sales Behavior Coaching Opportunity .png" class="card-img-top" alt="...">
+        </a>
+     <div class="card-body" style="display: block;">
+     <p class="card-text">Nexidia-Manager and Above </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- <div id="myBtnContainer">
+  <button class="btn" onclick="filterSelection('nature')"> Dashboards by Function</button>
+  <button class="btn" onclick="filterSelection('cars')"> Dashboards by Industry</button>
+  <button class="btn" onclick="filterSelection('people')"> Dashboards by Plateform</button>
+</div> 
+<div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img src="images/download (1).jpg" alt="Mountains" style="width:100%">
+      <h4>Mountains</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+      <img src="images/Dashboard2.jpg" alt="Mountains" style="width:100%">
+      <h4>AR- Prediction Dashboard</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+      <a target="_blank" href="https://public.datapine.com/#board/DS1Cw8j9c45cOwBMUVX6fK"></a>
+      <img src="images/Dashboard3.jpg" alt="Mountains" style="width:100%">
+      <h4>Corona Analysis
+      </h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column nature ">
+    <div class="content">
+      <img src="images/Dashboard4.jpg" alt="Mountains" style="width:100%">
+      <h4>Mountains</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column nature card">
+    <div class="content">
+      <img src="images/Dashboard5.jpg" alt="Mountains" style="width:100%">
+      <h4>Mountains</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column nature ">
+    <div class="content">
+      <img src="images/Dashboard6.jpg" alt="Mountains" style="width:100%">
+      <h4>Mountains</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+  <div class="column nature ">
+    <div class="content">
+      <img src="images/Dashboard7.jpg" alt="Mountains" style="width:100%">
+      <h4>Mountains</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div> -->
+
+
+
+</div>
+<script>
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("column");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+  
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+  
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+  
+  
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("gallery-section-filter");
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  </script>
+  <!-- importing bootstrap.js and supporting js libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!-- importing app scripts (load order is important) -->
+  <script type="text/javascript" src="./authConfig.js"></script>
+  <script type="text/javascript" src="./graphConfig.js"></script>
+  <script type="text/javascript" src="./ui.js"></script>
+
+  <!-- <script type="text/javascript" src="./authRedirect.js"></script>   -->
+  <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
+  <script type="text/javascript" src="./authPopup.js"></script>
+  <script type="text/javascript" src="./graph.js"></script>
+</body>
+
+</html>
