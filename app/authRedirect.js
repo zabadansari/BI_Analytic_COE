@@ -52,6 +52,7 @@ function signIn() {
      */
 
     myMSALObj.loginRedirect(loginRequest);
+    
 }
 
 function signOut() {

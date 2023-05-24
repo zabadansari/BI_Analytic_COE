@@ -17,6 +17,9 @@ function showWelcomeMessage(username) {
     
 }
 
+
+
+
 function updateUI(data, endpoint) {
     console.log('Graph API responded at: ' + new Date().toString());
 

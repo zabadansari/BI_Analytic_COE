@@ -43,7 +43,8 @@
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-      <div class="carousel-inner">
+
+            <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="10000">
           <img src="\images\image3.jpg" class="d-block w-100 img-carousel" alt="...">
           <div class="carousel-caption d-none d-md-block">
@@ -76,66 +77,71 @@
       </button>
     </div>
   </div>
+
+
+  
   <div class="container-fluid data-show">
     <div class="row">
       <div id="card-div" style="display:none;float: left;">
         <div class=" text-right">
           <div class="card-body">
 
-
-            <div id="profile-div">
-              <div class="gallery-section-filter">
-
-                <div class="container">
-                  <div class="gall-filt-box" id="myBtnContainer">
-                    <span data-filter="function" class="list active">Dashboards by Function</span>
-                    <span data-filter="platform" class="list">Dashboards by Platform</span>
-                  </div>
-                </div>
-              </div>
               <!---------------------------->
               <div class="container itemBox platform">
-                <section>
+                <!-- <section>
                   <ul>
-                    <li class="active">Show All</li>
-                    <li>Power BI</li>
-                    <li>Tableau</li>
+                    <li class="list active">Show All</li>
+                    <li class="list">Power BI</li>
+                    <li class="list">Tableau</li>
                   </ul>
-                </section>
-                <h4 id="PowerBI">Power BI</h4>
+                </section> -->
+                <div id="myBtnContainer">
+                  <button class="list btn-light btn active shadow" data-filter="all"> Show all</button>
+                  <button class="btn btn-light list shadow" data-filter="PowerBI"> Power BI</button>
+                  <button class="btn btn-light list shadow" data-filter="Tableau" > Tableau</button>
+              
+                </div>
+                <h4 class= "filterDiv PowerBI"  id="PowerBI" style="margin-top: 1rem;">Power BI</h4>
                 <div class="row my-4">
-                  <div class="col-sm-4  filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4  filterDiv PowerBI " data-filter="PowerBI">
                     <div class="card ">
-
-                      <img src="images/Dashboard2.jpg" class="card-img-top" alt="...">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiYTZjZmM1YjEtZmE3Ny00MTI4LTljYzgtNTM1NzhiNDlkYmVlIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/AR01_PB.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
-                        <p class="card-text">AR- Prediction Dashboard.
+                        <p class="card-text">Days Sales Outstanding(Account Receivable)
                           <br>
-                          <span id="bi-domain">Power BI</span>
+                          <span id="bi-domain">Finance and Accounting</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card">
-                      <img src="images/Dashboard3.jpg" class="card-img-top" alt="...">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiODg3MTg5YjUtOGJiNS00Y2FiLThlZTgtOWE5NWRjZWEyNDAxIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/AP01_PB.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
-                        <p class="card-text">Corona Analysis<br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Days Payable Outstanding(Accounts Payable)<br>
+                          <span id="bi-domain">Finance and Accounting</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card">
                       <a href="https://app.powerbi.com/reportEmbed?reportId=a7425e5f-3b07-4635-9f53-7f03ec826e79&autoAuth=true&ctid=bb466cbb-621c-493b-8374-6c8f26dc6a18"
                         class="card-link" target="_blank">
                         <img src="images/Dashboard4.png" class="card-img-top" alt="...">
                       </a>
                       <div class="card-body">
-                        <p class="card-text">Credit Union
-                          <br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Credit<br>
+                          <span id="bi-domain">Finance and Accounting</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
 
                       </div>
@@ -144,37 +150,43 @@
 
                 </div>
                 <div class="row my-4">
-                  <div class="col-sm-4 filterDiv function" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card hover-shadow">
-
-                      <img src="images/Dashboard5.jpg" class="card-img-top" alt="...">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiM2UyZjQ4OTAtNGQ2ZS00MzY4LTg0ZGUtZmY0ZDdjZGExNTBmIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/Telecom01-RPA – UiPath & BluePrism.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
 
-                        <p class="card-text">Healthcare Reports.
-                          <br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Healthcare Reports.<br>
+                          <span id="bi-domain">Telecom-RPA-UiPath & BluePrism</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card ">
                       <img src="images/Dashboard6.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
-                        <p class="card-text">Xtra Source
-                          <br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Xtra Source<br>
+                          <span id="bi-domain">Healthcare</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card ">
-                      <img src="images/Dashboard7.jpg" class="card-img-top" alt="...">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiNmYwYWNjY2QtMmY0NC00NzU4LWE5NTAtNjU5YTRjOTk1MjY5IiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/CRM-01.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
-                        <p class="card-text">Xperigo Report
-                          <br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Sales & Marketing (Salesforce)<br>
+                          <span id="bi-domain">Sales & Marketing</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
@@ -190,38 +202,45 @@
 
                 </div>
                 <div class="row my-4">
-                  <div class="col-sm-4 filterDiv function" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card ">
-
-                      <img src="images/Dashboard8.png" class="card-img-top" alt="...">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiNmYwYWNjY2QtMmY0NC00NzU4LWE5NTAtNjU5YTRjOTk1MjY5IiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/Insurance01-RMS.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
 
-                        <p class="card-text">Dyson
-                          <br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Risk Management-Scorecard<br>
+                          <span id="bi-domain">Insurance</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card ">
-                      <img src="images/Dashboard9.jpg" class="card-img-top" alt="...">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiOTY3ZTc4OTItYjY2ZC00NDhiLWE0ZDQtZDA0NWVlMzI0YWVmIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/Insurance02-AutoFraud.png" class="card-img-top" alt="...">
+                    </a>
                       <div class="card-body">
-                        <p class="card-text">E Health <br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Auto Insurance<br>
+                          <span id="bi-domain">Insurance</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
                     <div class="card ">
                       <a href="https://app.powerbi.com/view?r=eyJrIjoiZTMxOTI3MDEtMzZiYi00YjFhLTg2ZTgtMDYyNjhjYWFlMzYyIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
                         target="_blank">
                         <img src="images/Dashboard9.png" class="card-img-top" alt="...">
                       </a>
                       <div class="card-body">
-                        <p class="card-text">Healthcare<br>
-                          <span id="bi-domain">Power BI</span>
+                        <p class="card-text">Operation Dashboard<br>
+                          <span id="bi-domain">Insurance</span><br>
+                          <span id="bi-tool">Power BI</span>
                         </p>
                       </div>
                     </div>
@@ -238,9 +257,59 @@
               </div> -->
 
                 </div>
-                <h4 id="Tableau">Tableau</h4>
                 <div class="row my-4">
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
+                    <div class="card ">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiMzFmNGFjNzQtMGI2Ni00NDEyLWFkM2QtNTYzNDY2ZWRmYzlkIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/Insurance03-Home Insurance.png" class="card-img-top" alt="...">
+                    </a>
+                      <div class="card-body">
+
+                        <p class="card-text">Home Insurance<br>
+                          <span id="bi-domain">Insurance</span><br>
+                          <span id="bi-tool">Power BI</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
+                    <div class="card ">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiZGZlNDk1YjMtYmY0MC00OTNkLTk5NTQtNDY2MWJkNGY4OGFmIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/HR01_HRAnalytics.png" class="card-img-top" alt="...">
+                    </a>
+                      <div class="card-body">
+
+                        <p class="card-text">HR Analytics<br>
+                          <span id="bi-domain">Human Resource</span><br>
+                          <span id="bi-tool">Power BI</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 filterDiv PowerBI" data-filter="Power BI">
+                    <div class="card ">
+                      <a href="https://app.powerbi.com/view?r=eyJrIjoiNjg2NTFkNTYtYTFiNS00NTc3LTk2YWUtNWFlNWMzMzMxZmUzIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
+                      class="card-link" target="_blank">
+                      <img src="images/HR02_Healthcare Device Sensors.png" class="card-img-top" alt="...">
+                    </a>
+                      <div class="card-body">
+
+                        <p class="card-text">Healthcare Device Sensors<br>
+                          <span id="bi-domain">Human Resource</span><br>
+                          <span id="bi-tool">Power BI</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  </div>
+                <h4 class= "filterDiv Tableau" id="Tableau">Tableau</h4>
+                <div class="row my-4">
+                  <div class="col-sm-4 filterDiv Tableau" data-filter="Tableau">
                     <div class="card ">
                       <a href="https://public.tableau.com/profile/niket1079#!/vizhome/Supervisor_AHT_Final_3/Overview"
                         target="_blank">
@@ -248,37 +317,37 @@
                       </a>
                       <div class="card-body">
 
-                        <p class="card-text">Supervisor_AHT_Final_3
-                          Telecom
-                          <br>
-                          <span id="bi-domain">Tableau</span>
+                        <p class="card-text">Supervisor_AHT_Final_3<br>
+                          <span id="bi-domain">Telecom</span><br>
+                          <span id="bi-tool">Tableau</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
+                  <div class="col-sm-4 filterDiv Tableau" data-filter="Tableau">
                     <div class="card ">
                       <a href="https://public.tableau.com/profile/niket1079#!/vizhome/TelecomDashboard_15698335532700/TelecomDashboard"
                         target="_blank">
                         <img loading="lazy" src="images/tb_Telecom Dashboard .png" class="card-img-top" alt="...">
                       </a>
                       <div class="card-body">
-                        <p class="card-text">Telecom Dashboard <br>
-                          <span id="bi-domain">Tableau</span>
+                        <p class="card-text">Agent Scoreboard<br>
+                          <span id="bi-domain">Telecom</span><br>
+                          <span id="bi-tool">Tableau</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
+                  <div class="col-sm-4 filterDiv Tableau" data-filter="Tableau">
                     <div class="card ">
                       <a href="https://public.tableau.com/app/profile/niket1079/viz/Nexidia-ManagerAndAbove/Sentiment"
                         target="_blank">
-                        <img loading="lazy" src="images/tb_Telecom Dashboard .png" class="card-img-top" alt="...">
+                        <img loading="lazy" src="images/Telecom02-SentimentAnalysis.png" class="card-img-top" alt="...">
                       </a>
                       <div class="card-body">
-                        <p class="card-text">Nexidia-Manager and Above
-                          <br>
-                          <span id="bi-domain">Tableau</span>
+                        <p class="card-text">Sentiment Analysis<br>
+                          <span id="bi-domain">Telecom</span><br>
+                          <span id="bi-tool">Tableau</span>
                         </p>
                       </div>
                     </div>
@@ -297,7 +366,7 @@
 
                 </div>
                 <div class="row my-4">
-                  <div class="col-sm-4 filterDiv function" data-filter="Tableau">
+                  <div class="col-sm-4 filterDiv Tableau function" data-filter="Tableau">
                     <div class="card ">
                       <a href="https://public.tableau.com/profile/niket1079#!/vizhome/PropertyInsurance/HistoricalAnalysis"
                         target="_blank">
@@ -306,12 +375,13 @@
                       <div class="card-body">
 
                         <p class="card-text">Property Insurance <br>
-                          <span id="bi-domain">Tableau</span>
+                          <span id="bi-domain">Insurance</span><br>
+                          <span id="bi-tool">Tableau</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
+                  <div class="col-sm-4 filterDiv Tableau" data-filter="Tableau">
                     <div class="card ">
                       <a href="https://public.tableau.com/profile/niket1079#!/vizhome/AttritionPredictionAnalysisthemeedited2/Historical-VoluntaryChurnsDashboard"
                         target="_blank">
@@ -320,12 +390,13 @@
                       </a>
                       <div class="card-body">
                         <p class="card-text">Attrition Prediction Analysis <br>
-                          <span id="bi-domain">Tableau</span>
+                          <span id="bi-domain">Human Resource</span><br>
+                          <span id="bi-tool">Tableau</span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
+                  <div class="col-sm-4 filterDiv Tableau" data-filter="Tableau">
                     <div class="card ">
                       <a href="https://public.tableau.com/profile/niket1079#!/vizhome/SalesBehaviorCoachingOpportunity/CoachingBehavior"
                         target="_blank">
@@ -334,336 +405,16 @@
                       </a>
                       <div class="card-body">
                         <p class="card-text">Sales Behavior Coaching Opportunity <br>
-                          <span id="bi-domain">Tableau</span>
+                          <span id="bi-domain">Sales & Marketing</span><br>
+                          <span id="bi-tool">Tableau</span>
                         </p>
                       </div>
                     </div>
                   </div>
 
                 </div>
-                <!-- <div class="row my-4 ">
-              <div class="col-sm-4 filterDiv" data-filter ="Tableau">
-                  <div class="card " >
-                    <a href="https://public.tableau.com/profile/niket1079#!/vizhome/PropertyInsurance/HistoricalAnalysis" target="_blank">
-                    <img src="images/Property_Insurance .png" class="card-img-top" alt="...">
-                  </a>
-                    <div class="card-body">
-                    
-                      <p class="card-text">Supervisor_AHT_Final_3 </p>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-sm-4 filterDiv" data-filter ="Tableau">
-                <div class="card " >
-                  <a href="https://public.tableau.com/profile/niket1079#!/vizhome/AttritionPredictionAnalysisthemeedited2/Historical-VoluntaryChurnsDashboard" target="_blank">
-                  <img loading="lazy" src="images/Attrition & Prediction Analysis .png" class="card-img-top" alt="...">
-                </a>
-                  <div class="card-body">
-                    <p class="card-text">Telecom Dashboard  </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 filterDiv" data-filter ="Tableau">
-                <div class="card" >
-                  <a href="https://public.tableau.com/profile/niket1079#!/vizhome/SalesBehaviorCoachingOpportunity/CoachingBehavior" target="_blank">
-                    <img loading="lazy" src="images/Sales Behavior Coaching Opportunity .png" class="card-img-top" alt="...">
-                    </a>
-                 <div class="card-body" >
-                 <p class="card-text">Nexidia-Manager and Above </p>
-                  </div>
-                </div>
-              </div>
-            
-            </div> -->
-              </div>
-              <!----------------------------->
-
-              <div class="container itemBox function">
-                <section>
-                  <ul>
-                    <li class="active">Show All</li>
-                    <li>Manufacturing</li>
-                    <li>Finance</li>
-                    <li>Sales</li>
-                    <li>Healthcare</li>
-                    <li>Insurance</li>
-                    <li>Telecom</li>
-                  </ul>
-                </section>
-                <h4 id="Manufacturing">Manufacturing</h4>
-                <div class="row my-4">
-                  <div class="col-sm-4  filterDiv" data-filter="Manufacturing">
-                    <div class="card ">
-
-                      <img src="images/Dashboard2.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">AR- Prediction Dashboard.
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
-                    <div class="card">
-                      <img src="images/Dashboard3.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Corona Analysis
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
-                    <div class="card">
-                      <a href="https://app.powerbi.com/reportEmbed?reportId=a7425e5f-3b07-4635-9f53-7f03ec826e79&autoAuth=true&ctid=bb466cbb-621c-493b-8374-6c8f26dc6a18"
-                        class="card-link" target="_blank">
-                        <img src="images/Dashboard4.png" class="card-img-top" alt="...">
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">Credit Union
-                          <br>
-                          <span id="bi-domain">Finance</span>
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <h4 id="Sales">Sales</h4>
-                <div class="row my-4">
-                  <div class="col-sm-4 filterDiv function" data-filter="Power BI">
-                    <div class="card hover-shadow">
-
-                      <img src="images/Dashboard5.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-
-                        <p class="card-text">Healthcare Reports.
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
-                    <div class="card ">
-                      <img src="images/Dashboard6.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Xtra Source
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
-                    <div class="card ">
-                      <img src="images/Dashboard7.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">Xperigo Report
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="col-sm-3 filterDiv" data-filter ="Power BI">
-                <div class="card " >
-                  <img src="images/Dashboard7.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Xperigo Report</p>
-                  </div>
-                </div>
-              </div> -->
-
-                </div>
-                <h4 id="Healthcare">Healthcare</h4>
-                <div class="row my-4">
-                  <div class="col-sm-4 filterDiv function" data-filter="Power BI">
-                    <div class="card ">
-
-                      <img src="images/Dashboard8.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-
-                        <p class="card-text">Dyson
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
-                    <div class="card ">
-                      <img src="images/Dashboard9.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">E Health
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv" data-filter="Power BI">
-                    <div class="card ">
-                      <a href="https://app.powerbi.com/view?r=eyJrIjoiZTMxOTI3MDEtMzZiYi00YjFhLTg2ZTgtMDYyNjhjYWFlMzYyIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9"
-                        target="_blank">
-                        <img src="images/Dashboard9.png" class="card-img-top" alt="...">
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">Healthcare
-                          <br>
-                          <span id="bi-domain">Healthcare</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="col-sm-3 filterDiv" data-filter ="Power BI">
-                <div class="card " >
-                  <a href="https://app.powerbi.com/view?r=eyJrIjoiZTMxOTI3MDEtMzZiYi00YjFhLTg2ZTgtMDYyNjhjYWFlMzYyIiwidCI6IjU2M2JhZDYxLTYxMjctNDU0Yy05ODQwLTM1Mzc1YzM5YTgxOSJ9" target="_blank">
-                    <img loading="lazy" src="images/Dashboard9.png" class="card-img-top" alt="...">
-                    </a>
-                 <div class="card-body">
-                 <p class="card-text">Healthcare</p>
-                  </div>
-                </div>
-              </div> -->
-
-                </div>
-                <h4 id="Telecom">Telecom</h4>
-                <div class="row my-4">
-                  <div class="col-sm-4 filterDiv" data-filter="Tableau">
-                    <div class="card ">
-                      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/Supervisor_AHT_Final_3/Overview"
-                        target="_blank">
-                        <img src="images/Tb_Supervisor_AHT_Final_3.png" class="card-img-top" alt="...">
-                      </a>
-                      <div class="card-body">
-
-                        <p class="card-text">Supervisor_AHT_Final_3
-                          <br>
-                          <span id="bi-domain">Telecom</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
-                    <div class="card ">
-                      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/TelecomDashboard_15698335532700/TelecomDashboard"
-                        target="_blank">
-                        <img loading="lazy" src="images/tb_Telecom Dashboard .png" class="card-img-top" alt="...">
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">Telecom Dashboard
-                          <br>
-                          <span id="bi-domain">Telecom</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
-                    <div class="card ">
-                      <a href="https://public.tableau.com/app/profile/niket1079/viz/Nexidia-ManagerAndAbove/Sentiment"
-                        target="_blank">
-                        <img loading="lazy" src="images/tb_Telecom Dashboard .png" class="card-img-top" alt="...">
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">Nexidia-Manager and Above
-                          <br>
-                          <span id="bi-domain">Telecom</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <h4 id="Insurance">Insurance</h4>
-                <div class="row my-4">
-                  <div class="col-sm-4 filterDiv function" data-filter="Tableau">
-                    <div class="card ">
-                      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/PropertyInsurance/HistoricalAnalysis"
-                        target="_blank">
-                        <img src="\images\Property_Insurance .png" class="card-img-top" alt="...">
-                      </a>
-                      <div class="card-body">
-
-                        <p class="card-text">Property Insurance
-                          <br>
-                          <span id="bi-domain">Insurance</span>
-                        </p>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
-                    <div class="card ">
-                      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/AttritionPredictionAnalysisthemeedited2/Historical-VoluntaryChurnsDashboard"
-                        target="_blank">
-                        <img loading="lazy" src="\images\Attrition & Prediction Analysis .png" class="card-img-top"
-                          alt="...">
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">Attrition & Prediction Analysis
-                          <br>
-                          <span id="bi-domain">Sales</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4 filterDiv " data-filter="Tableau">
-                    <div class="card ">
-                      <a href="https://public.tableau.com/profile/niket1079#!/vizhome/SalesBehaviorCoachingOpportunity/CoachingBehavior"
-                        target="_blank">
-                        <img loading="lazy" src="\images\Sales Behavior Coaching Opportunity .png" class="card-img-top"
-                          alt="...">
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">Sales Behavior Coaching Opportunity
-                          <br>
-                          <span id="bi-domain">Sales</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <!-- <div class="row my-4 ">
-              <div class="col-sm-4 filterDiv" data-filter ="Tableau">
-                  <div class="card " >
-                    <a href="https://public.tableau.com/profile/niket1079#!/vizhome/PropertyInsurance/HistoricalAnalysis" target="_blank">
-                    <img src="images/Property_Insurance .png" class="card-img-top" alt="...">
-                  </a>
-                    <div class="card-body">
-                    
-                      <p class="card-text">Supervisor_AHT_Final_3 </p>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-sm-4 filterDiv" data-filter ="Tableau">
-                <div class="card " >
-                  <a href="https://public.tableau.com/profile/niket1079#!/vizhome/AttritionPredictionAnalysisthemeedited2/Historical-VoluntaryChurnsDashboard" target="_blank">
-                  <img loading="lazy" src="images/Attrition & Prediction Analysis .png" class="card-img-top" alt="...">
-                </a>
-                  <div class="card-body">
-                    <p class="card-text">Telecom Dashboard  </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 filterDiv" data-filter ="Tableau">
-                <div class="card" >
-                  <a href="https://public.tableau.com/profile/niket1079#!/vizhome/SalesBehaviorCoachingOpportunity/CoachingBehavior" target="_blank">
-                    <img loading="lazy" src="images/Sales Behavior Coaching Opportunity .png" class="card-img-top" alt="...">
-                    </a>
-                 <div class="card-body" >
-                 <p class="card-text">Nexidia-Manager and Above </p>
-                  </div>
-                </div>
-              </div>
-            
-            </div> -->
-              </div>
+              
+        
             </div>
             <br>
           </div>
@@ -672,15 +423,7 @@
       <br>
       <br>
 
-      <!-- <div class="col-md-4">
-      <div class="list-group" id="list-tab" role="tablist">
-        test
-      </div>
-    </div>
-    <div class="col-md-5">
-      <div class="tab-content" id="nav-tabContent">tes2
-      </div>
-    </div> -->
+
     </div>
   </div>
 

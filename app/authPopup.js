@@ -50,6 +50,8 @@ function signIn() {
         .catch(error => {
             console.error(error);
         });
+       
+       
 }
 
 function signOut() {

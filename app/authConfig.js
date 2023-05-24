@@ -6,12 +6,15 @@
 const msalConfig = {
     auth: {
         // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-        clientId: "747aae50-cc2b-42a4-ac43-55039166ecca",
+        //clientId: "747aae50-cc2b-42a4-ac43-55039166ecca",
+        clientId: "97e2d2fc-dcbb-4b60-b277-f104289dff40",
+       
         // Full directory URL, in the form of https://login.microsoftonline.com/<tenant-id>
-        authority: "https://login.microsoftonline.com/69fefb21-e23b-4b37-a87b-325559ad4980",
+        //authority: "https://login.microsoftonline.com/69fefb21-e23b-4b37-a87b-325559ad4980",
+        authority: "https://login.microsoftonline.com/bb466cbb-621c-493b-8374-6c8f26dc6a18",
         // Full redirect URL, in form of http://localhost:3000
-       // redirectUri: "http://localhost:3000/",
-        redirectUri: "http://rsysbisampledashboard.azurewebsites.net/",
+       redirectUri: "http://localhost:3000/",
+        // redirectUri: "https://rsysbisampledashboard.azurewebsites.net/",
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -28,7 +31,8 @@ const msalConfig = {
                         console.error(message);		
                         return;		
                     case msal.LogLevel.Info:		
-                        console.info(message);		
+                        console.info(message);
+                   
                         return;		
                     case msal.LogLevel.Verbose:		
                         console.debug(message);		

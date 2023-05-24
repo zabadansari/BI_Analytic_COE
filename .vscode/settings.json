@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9ab18f80-5f44-4bb8-95b3-c0124208571e/resourceGroups/PowerBISampleApps/providers/Microsoft.Web/sites/PowerBISampleApps",
+    "appService.deploySubpath": "."
+}
